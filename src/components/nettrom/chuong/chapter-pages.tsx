@@ -80,7 +80,7 @@ export default function ChapterPages() {
           isLoading={isLoading}
           loadingText="Đang tải nội dung chương..."
         >
-          {manga &&
+          {/*{manga &&
             (manga.attributes.contentRating ===
               MangadexApi.Static.MangaContentRating.PORNOGRAPHIC ||
               manga.attributes.contentRating ===
@@ -93,7 +93,7 @@ export default function ChapterPages() {
                   }}
                 />
               </div>
-            )}
+            )}*/}
           <div className="reading-detail box_doc">
             <LazyImages images={pages} threshold={(height || 1000) * 3} />
           </div>

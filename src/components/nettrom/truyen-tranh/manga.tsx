@@ -23,7 +23,6 @@ import { ExtendManga } from "@/types/mangadex";
 import FirstChapterButton from "./first-chapter-button";
 import ExternalLinks from "./external-links";
 import Markdown from "../Markdown";
-import { Alert } from "../Alert";
 import { cn } from "@/utils/shadcn";
 
 export default function Manga({
@@ -51,18 +50,20 @@ export default function Manga({
   const router = useRouter();
 
   const shouldBlock = useMemo(() => {
-    return (
-      (!filteredContent.includes(
-        MangadexApi.Static.MangaContentRating.PORNOGRAPHIC,
-      ) &&
-        manga.attributes.contentRating ===
-          MangadexApi.Static.MangaContentRating.PORNOGRAPHIC) ||
-      (!filteredContent.includes(
-        MangadexApi.Static.MangaContentRating.EROTICA,
-      ) &&
-        manga.attributes.contentRating ===
-          MangadexApi.Static.MangaContentRating.EROTICA)
-    );
+    // return (
+    //   (!filteredContent.includes(
+    //     MangadexApi.Static.MangaContentRating.PORNOGRAPHIC,
+    //   ) &&
+    //     manga.attributes.contentRating ===
+    //       MangadexApi.Static.MangaContentRating.PORNOGRAPHIC) ||
+    //   (!filteredContent.includes(
+    //     MangadexApi.Static.MangaContentRating.EROTICA,
+    //   ) &&
+    //     manga.attributes.contentRating ===
+    //       MangadexApi.Static.MangaContentRating.EROTICA)
+    // );
+
+    return false;
   }, [filteredContent, manga.attributes.contentRating]);
 
   const handleLogin = () => {
@@ -342,7 +343,7 @@ export default function Manga({
       </div>
 
       <article id="" className="dark:text-foreground">
-        {(manga.attributes.contentRating ===
+        {/*{(manga.attributes.contentRating ===
           MangadexApi.Static.MangaContentRating.PORNOGRAPHIC ||
           manga.attributes.contentRating ===
             MangadexApi.Static.MangaContentRating.EROTICA) && (
@@ -354,7 +355,7 @@ export default function Manga({
               }}
             />
           </div>
-        )}
+        )}*/}
         <div
           className={`mb-8 rounded-xl border border-border bg-card p-6 shadow-sm ${showMoreInfo ? "block" : "hidden md:block"}`}
         >
