@@ -22,8 +22,9 @@ const sizeClasses = {
 
 type SwitchSize = keyof typeof sizeClasses;
 
-interface SwitchProps
-  extends React.ComponentProps<typeof SwitchPrimitive.Root> {
+interface SwitchProps extends React.ComponentProps<
+  typeof SwitchPrimitive.Root
+> {
   size?: SwitchSize;
 }
 

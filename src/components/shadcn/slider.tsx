@@ -27,8 +27,9 @@ const sizeClasses = {
 
 type SliderSize = keyof typeof sizeClasses;
 
-interface SliderProps
-  extends React.ComponentProps<typeof SliderPrimitive.Root> {
+interface SliderProps extends React.ComponentProps<
+  typeof SliderPrimitive.Root
+> {
   size?: SliderSize;
 }
 
