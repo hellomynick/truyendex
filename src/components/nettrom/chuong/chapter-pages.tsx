@@ -11,7 +11,6 @@ import Link from "next/link";
 import Iconify from "@/components/iconify";
 import { Constants } from "@/constants";
 import { useMemo } from "react";
-import { MangadexApi } from "@/api";
 import { useSettingsContext } from "@/contexts/settings";
 
 export default function ChapterPages() {
@@ -24,18 +23,19 @@ export default function ChapterPages() {
 
   const shouldBlock = useMemo(() => {
     if (!manga) return false;
-    return (
-      (!filteredContent.includes(
-        MangadexApi.Static.MangaContentRating.PORNOGRAPHIC,
-      ) &&
-        manga?.attributes.contentRating ===
-          MangadexApi.Static.MangaContentRating.PORNOGRAPHIC) ||
-      (!filteredContent.includes(
-        MangadexApi.Static.MangaContentRating.EROTICA,
-      ) &&
-        manga?.attributes.contentRating ===
-          MangadexApi.Static.MangaContentRating.EROTICA)
-    );
+    // return (
+    //   (!filteredContent.includes(
+    //     MangadexApi.Static.MangaContentRating.PORNOGRAPHIC,
+    //   ) &&
+    //     manga?.attributes.contentRating ===
+    //       MangadexApi.Static.MangaContentRating.PORNOGRAPHIC) ||
+    //   (!filteredContent.includes(
+    //     MangadexApi.Static.MangaContentRating.EROTICA,
+    //   ) &&
+    //     manga?.attributes.contentRating ===
+    //       MangadexApi.Static.MangaContentRating.EROTICA)
+    // );
+    return false;
   }, [manga, filteredContent]);
 
   const { pages, isLoading, error } = useChapterPages(
